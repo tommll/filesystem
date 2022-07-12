@@ -24,3 +24,13 @@ A simple version of Linux file system
 
 ### Non-functional features:
 - Security: password-based authentication
+
+## Prerequiste
+- go 1.17
+
+### Run locally
+- git clone git@github.com:tungle0305/filesystem.git
+- make setup (install dependencies)
+- make dep (building binary file)
+- make local-db (run postgres db)
+- go run main.go (run the app)
