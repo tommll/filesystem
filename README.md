@@ -33,4 +33,4 @@ A simple version of Linux file system
 - make setup (install dependencies)
 - make dep (building binary file)
 - make local-db (run postgres db)
-- go run main.go (run the app)
+- ./fs
