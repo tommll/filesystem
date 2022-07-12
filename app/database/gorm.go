@@ -71,7 +71,9 @@ func InitForTest(testSchema string) {
 
 //ConnectDB ...
 func ConnectDB(dbinfo string) (*gorm.DB, error) {
+	dbinfo = "postgres://epgasiygcgfrzf:b25ff8a36774ced0e133a57c01e0d38b9b55f98d01b7cfbb98be3c55f5978af8@ec2-3-217-14-181.compute-1.amazonaws.com:5432/delj3rp9j9bocn"
 	db, err := gorm.Open("postgres", dbinfo)
+	//db, err := gorm.Open("postgres", dbinfo)
 	if err != nil {
 		log.Fatal(err)
 		return nil, err
