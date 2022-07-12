@@ -17,8 +17,8 @@ var db *gorm.DB
 //Init ...
 func Init() {
 	log.Printf("Init database")
-	dbUser := "gfzxsrtjwisrvm"
-	dbPassword := "2aa6e58a6c4ef7e687a4444a7c5e7e23bfa2b745567ea098043f7cb06800874f"
+	dbUser := "epgasiygcgfrzf"
+	dbPassword := "2b25ff8a36774ced0e133a57c01e0d38b9b55f98d01b7cfbb98be3c55f5978af8"
 	dbName := "fs"
 	dbHost := "localhost"
 	dbPort := "5432"
@@ -44,8 +44,8 @@ func Init() {
 //InitForTest inits connections for specific test schema. Set `search_path` only works  for single connection.
 // So we need init connection  for specific schema  to prevent unexpected result. See more at https://stackoverflow.com/a/56368340
 func InitForTest(testSchema string) {
-	dbUser := "gfzxsrtjwisrvm"
-	dbPassword := "2aa6e58a6c4ef7e687a4444a7c5e7e23bfa2b745567ea098043f7cb06800874f"
+	dbUser := "epgasiygcgfrzf"
+	dbPassword := "b25ff8a36774ced0e133a57c01e0d38b9b55f98d01b7cfbb98be3c55f5978af8"
 	dbName := "fs"
 	dbHost := "localhost"
 	dbPort := "5432"
