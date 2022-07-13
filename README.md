@@ -1,9 +1,12 @@
-## SFS
-A simple version of Linux file system
+SFS
+===================
+In-browser simple Linux-like file system
+
+![](/assets/fs.png)
 
 
-### Core features:
-#### *1. File system operations*
+System operations
+-------------
 - List all file and folders in a directory 
 - Show data of a file 
 - Create a new file/folder
@@ -11,16 +14,29 @@ A simple version of Linux file system
 - Remove a file/folder 
 - Move a file/folder to another directory
 
-- Note: all paths used to navigate must be from root ('/', './')
+- Note: all paths used to navigate must be from root ('/')
 
-#### *2. Minimal interface*
-- Currently, user can only interact with the system through http protocol
-- List files/folders: ${host}/fs/ls
-- Show file data: ${host}/fs/cat
-- Create new file/folder: ${host}/fs/cr
-- Find files/folders: ${host}/fs/find
-- Remove file/folder : ${host}/fs/rm
-- Move file/folder : ${host}/fs/mv
+Minimal interface
+-------------
+User can interact with the system through a chat-like interface 
+- List files/folders: ls /path/to/folder
+- Show file data: cat /path/to/file
+- Create new file/folder: cr /path/to/file [optional_data]
+- Find files/folders: find file_name_substring
+- Remove file/folder : rm /path/to/delete/1 [/path/to/delete/2, /path/to/delete/3]
+- Move file/folder : mv /path/to/file/or/folder new_name [optional_data]
 
-### Non-functional features:
+
+
+Non-functional features:
+-------------
 - Security: password-based authentication
+
+
+### Run localy
+```
+cd go-backend
+make local-db
+make setup
+make run
+```

@@ -5,8 +5,6 @@ FLAGS := -ldflags "-X main.version=$(VERSION)"
 setup:
 	$(info $(M) go mod vendor)
 	go mod vendor
-
-dep: ; $(info Ensuring vendored dependencies are up-to-date...)
 	go build $(FLAGS) -o .
 
 local-db:
@@ -23,5 +21,5 @@ local-db:
 	@docker exec fs_postgres_1 psql -U postgres -p 5432 fs -f /fs.sql
 
 run:
-	go run main.go
+	./fs
 
