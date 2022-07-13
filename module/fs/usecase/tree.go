@@ -143,6 +143,7 @@ func (g *treeUseCaseImpl) Create(path string, data string) error {
 		node = entity.Node{Parent: parentNode, Name: newNodeName, Type: 0}
 	} else {
 		node = entity.Node{Parent: parentNode, Name: newNodeName, Type: 1}
+		node.Data = data
 	}
 
 	item, err := node.ToItem()
@@ -269,6 +270,9 @@ func (g *treeUseCaseImpl) Update(path, newName, data string) error {
 	if err != nil {
 		return err
 	}
+
+	log.Printf("targetItem: %v\n", targetItem)
+
 	err = g.ItemRepo.Update(targetItem)
 	if err != nil {
 		return ErrorFailToSaveItemToDB
@@ -345,7 +349,6 @@ func (g *treeUseCaseImpl) Move(sourcePath, destPath string) error {
 
 func (g *treeUseCaseImpl) Remove(paths []string) error {
 	atLeastOneError := false
-	var err error
 
 	for _, path := range paths {
 		path = lib.CleanPathToFileOrFolder(path)
@@ -354,7 +357,15 @@ func (g *treeUseCaseImpl) Remove(paths []string) error {
 			return ErrorInvalidPath
 		}
 
-		err = g.Node.DeleteByPath(path)
+		parentPath := lib.GetParentPath(path)
+		nodeNames := strings.Split(path, "/")
+		if !lib.CheckName(nodeNames[len(nodeNames)-1]) { // file name could be '.' or '..'
+			atLeastOneError = true
+			return ErrorFailToDeleteNodeInTree
+		}
+		parentNode, err := g.Node.TraverseByPath(parentPath)
+
+		err = parentNode.DeleteByPath(path)
 		if err != nil {
 			atLeastOneError = true
 			return ErrorFailToDeleteNodeInTree

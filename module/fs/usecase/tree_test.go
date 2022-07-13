@@ -396,12 +396,23 @@ func TestMove(t *testing.T) {
 	uc := NewTreeUseCase(&root, repo)
 	var gotErr error
 
-	t.Run("move folder to folder", func(t *testing.T) {
+	t.Run("move folder", func(t *testing.T) {
 		root.Print(0, "")
 		gotErr = uc.Move("/usr", "/tung")
 		assert.NoError(t, gotErr)
 
 		gotNode, gotErr := uc.Navigate("/tung/usr")
+		assert.NoError(t, gotErr)
+		assert.Equal(t, "usr", gotNode.Name)
+		root.Print(0, "")
+	})
+
+	t.Run("move folder to root", func(t *testing.T) {
+		root.Print(0, "")
+		gotErr = uc.Move("/tung/usr", "/")
+		assert.NoError(t, gotErr)
+
+		gotNode, gotErr := uc.Navigate("/usr")
 		assert.NoError(t, gotErr)
 		assert.Equal(t, "usr", gotNode.Name)
 		root.Print(0, "")
