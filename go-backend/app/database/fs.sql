@@ -16,4 +16,4 @@ create table items(
 CREATE INDEX idx_item_order ON items (order_num);
 
 -- insert root node
-INSERT INTO items (id, item_type, order_num, name) VALUES (0, 0, 0, '~')
+INSERT INTO items (id, item_type, order_num, name) VALUES (0, 0, 0, '~');

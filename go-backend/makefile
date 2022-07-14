@@ -5,7 +5,7 @@ FLAGS := -ldflags "-X main.version=$(VERSION)"
 setup:
 	$(info $(M) go mod vendor)
 	go mod vendor
-	go build $(FLAGS) -o .
+	CGO_ENABLED=0 go build $(FLAGS) -o .
 
 local-db:
 	@echo "======================== Setup DB (Postgres) ========================"

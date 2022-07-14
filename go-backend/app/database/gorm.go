@@ -22,10 +22,10 @@ func Init() {
 	//dbName := "fs"
 	//dbHost := "localhost"
 	//dbPort := "5432"
-	dbUser := "epgasiygcgfrzf"
-	dbPassword := "b25ff8a36774ced0e133a57c01e0d38b9b55f98d01b7cfbb98be3c55f5978af8"
-	dbName := "delj3rp9j9bocn"
-	dbHost := "ec2-3-217-14-181.compute-1.amazonaws.com"
+	dbUser := "iqvdxcsyxksgrz"
+	dbPassword := "d96210460557ca73d8a55109ed2447ed6aaf87da085b991b6d0c54e3339de9e8"
+	dbName := "d1mp79js773khe"
+	dbHost := "ec2-52-20-166-21.compute-1.amazonaws.com"
 	dbPort := "5432"
 
 	port, e := strconv.Atoi(dbPort)

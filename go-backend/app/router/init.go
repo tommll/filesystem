@@ -3,6 +3,7 @@ package router
 import (
 	"fs/app/usecase"
 	"fs/module/fs/controller"
+	"os"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-contrib/static"
@@ -34,5 +35,10 @@ func SetupRouter() *gin.Engine {
 
 func InitRouter() {
 	router := SetupRouter()
-	router.Run(":8080")
+	port := os.Getenv("PORT")
+	if len(port) == 0 {
+		port = "8080"
+	}
+
+	router.Run(":" + port)
 }

@@ -1,10 +1,12 @@
+// require('dotenv').config();
+
 export const sendToServer =  async (args) => {
   // var parts = JSON.parse(args)['command'].split(' ')
   var parts = args.split(' ')
   var cmd = parts[0]
 
   var ans = "";
-  var url = 'http://localhost:8080/fs/' + cmd
+  var url = 'https://nameless-taiga-69302.herokuapp.com/fs/' + cmd
   var data;
 
   switch (cmd){
