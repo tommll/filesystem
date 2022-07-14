@@ -17,17 +17,22 @@ var db *gorm.DB
 //Init ...
 func Init() {
 	log.Printf("Init database")
-	dbUser := "postgres"
-	dbPassword := "123456789"
-	dbName := "fs"
-	dbHost := "localhost"
+	//dbUser := "postgres"
+	//dbPassword := "123456789"
+	//dbName := "fs"
+	//dbHost := "localhost"
+	//dbPort := "5432"
+	dbUser := "epgasiygcgfrzf"
+	dbPassword := "b25ff8a36774ced0e133a57c01e0d38b9b55f98d01b7cfbb98be3c55f5978af8"
+	dbName := "delj3rp9j9bocn"
+	dbHost := "ec2-3-217-14-181.compute-1.amazonaws.com"
 	dbPort := "5432"
 
 	port, e := strconv.Atoi(dbPort)
 	if e != nil {
 		log.Fatal(e)
 	}
-	dbInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
+	dbInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=require",
 		dbHost, port, dbUser, dbPassword, dbName)
 
 	var err error
